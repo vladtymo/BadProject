@@ -11,6 +11,8 @@ namespace WPF_MVVM
         {
             InitializeComponent();
             DataContext = new ArgbColorModel();
+
+            MessageBox.Show("Fixed gub with login");
         }
     }
 }
