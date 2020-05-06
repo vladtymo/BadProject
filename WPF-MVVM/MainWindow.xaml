@@ -21,22 +21,22 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <CheckBox x:Name="AlphaCB"  Margin="5"/>
+                <CheckBox x:Name="AlphaCB"  Margin="5" IsChecked="{Binding IsAlphaChecked,Mode=TwoWay}"/>
                 <Label HorizontalAlignment="Center" Grid.Column="1" Content="Alpha:"/>
                 <Label x:Name="AlphaValue" HorizontalAlignment="Center" Grid.Column="2" Content="{Binding Alpha}"/>
                 <Slider  Value="{Binding Alpha, Mode=TwoWay}" Grid.Column="3" Width="255" x:Name="sliderAlpha"  Minimum="0" Maximum="255" IsSnapToTickEnabled="True" TickFrequency="1" TickPlacement="Both"/>
 
-                <CheckBox  x:Name="RedCB"  Grid.Row="1" Margin="5"/>
+                <CheckBox  x:Name="RedCB"  Grid.Row="1" Margin="5" IsChecked="{Binding IsRedChecked,Mode=TwoWay}"/>
                 <Label HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1"  Content="Red:"/>
                 <Label x:Name="RedValue" HorizontalAlignment="Center"  Grid.Row="1" Grid.Column="2" Content="{Binding Red}"/>
                 <Slider Value="{Binding Red, Mode=TwoWay}"  Grid.Row="1" Grid.Column="3" x:Name="sliderRed"  Minimum="0" Maximum="255" IsSnapToTickEnabled="True" TickFrequency="1" TickPlacement="Both"/>
 
-                <CheckBox  x:Name="GreenCB" Grid.Row="2" Margin="5"/>
+                <CheckBox  x:Name="GreenCB" Grid.Row="2" Margin="5" IsChecked="{Binding IsGreenChecked,Mode=TwoWay}"/>
                 <Label HorizontalAlignment="Center" Grid.Row="2" Grid.Column="1" Content="Green:"/>
                 <Label x:Name="GreenValue" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="2" Content="{Binding Green}"/>
                 <Slider  Value="{Binding Green, Mode=TwoWay}" Grid.Row="2"  x:Name="sliderGreen" Grid.Column="3"  Minimum="0" Maximum="255" IsSnapToTickEnabled="True" TickFrequency="1" TickPlacement="Both"/>
 
-                <CheckBox  x:Name="BlueCB" Grid.Row="3" Margin="5"/>
+                <CheckBox  x:Name="BlueCB" Grid.Row="3" Margin="5" IsChecked="{Binding IsBlueChecked,Mode=TwoWay}"/>
                 <Label HorizontalAlignment="Center" Grid.Row="3" Grid.Column="1" Content="Blue"/>
                 <Label x:Name="BlueValue" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="2" Content="{Binding Blue}"/>
                 <Slider  Value="{Binding Blue, Mode=TwoWay}" Grid.Row="3" Grid.Column="3" x:Name="sliderBlue"  Minimum="0" Maximum="255" IsSnapToTickEnabled="True" TickFrequency="1" TickPlacement="Both"/>
