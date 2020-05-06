@@ -19,19 +19,31 @@ namespace WPF_MVVM
         private byte red;
         private byte green;
         private byte blue;
+
+        private bool isAlphaChecked = false;
+        private bool isRedChecked = false;
+        private bool isGreenChecked = false;
+        private bool isBlueChecked = false;
+
+        public bool IsAlphaChecked { get { return isAlphaChecked; } set { Alpha = 0; isAlphaChecked = value; NotifyChanged(); } }
+        public bool IsRedChecked { get { return isRedChecked; } set { Red = 0; isRedChecked = value; NotifyChanged(); } }
+        public bool IsGreenChecked { get { return isGreenChecked; } set { Green = 0; isGreenChecked = value; NotifyChanged(); } }
+        public bool IsBlueChecked { get { return isBlueChecked; } set { Blue = 0; isBlueChecked = value; NotifyChanged(); } }
+
+
         private ICommand addCommand;
         private ICommand removeCommand;
         private SolidColorBrush selectedBrush;
+
         public SolidColorBrush SelectedBrush { get { return selectedBrush; } set { selectedBrush = value; NotifyChanged(); } }
 
-
         public ObservableCollection<SolidColorBrush> Brushes { get; } = new ObservableCollection<SolidColorBrush>();
-        public byte Alpha { get { return alpha; } set { alpha = value; Color = new SolidColorBrush(System.Windows.Media.Color.FromArgb(alpha, red, green, blue)); NotifyChanged(); } }
-        public byte Red { get { return red; } set { red = value; Color = new SolidColorBrush(System.Windows.Media.Color.FromArgb(alpha, red, green, blue)); NotifyChanged(); } }
-        public byte Green { get { return green; } set { green = value; Color = new SolidColorBrush(System.Windows.Media.Color.FromArgb(alpha, red, green, blue)); NotifyChanged(); } }
-        public byte Blue { get { return blue; } set { blue = value; Color = new SolidColorBrush(System.Windows.Media.Color.FromArgb(alpha, red, green, blue)); NotifyChanged(); } }
+        public byte Alpha { get { return alpha; } set { if (!isAlphaChecked) { alpha = value; Color = new SolidColorBrush(System.Windows.Media.Color.FromArgb(alpha, red, green, blue)); NotifyChanged(); } } }
+        public byte Red { get { return red; } set { if (!isRedChecked) { red = value; Color = new SolidColorBrush(System.Windows.Media.Color.FromArgb(alpha, red, green, blue)); NotifyChanged(); } } }
+        public byte Green { get { return green; } set { if (!isGreenChecked) { green = value; Color = new SolidColorBrush(System.Windows.Media.Color.FromArgb(alpha, red, green, blue)); NotifyChanged(); } } }
+        public byte Blue { get { return blue; } set { if (!isBlueChecked) { blue = value; Color = new SolidColorBrush(System.Windows.Media.Color.FromArgb(alpha, red, green, blue)); NotifyChanged(); } } }
 
-        SolidColorBrush brush = new SolidColorBrush(System.Windows.Media.Color.FromArgb(0,0,0,0));
+        SolidColorBrush brush;
         public SolidColorBrush Color { get { return brush; } set { brush = value; NotifyChanged(); } }
 
         public ICommand AddCommand
@@ -51,7 +63,7 @@ namespace WPF_MVVM
         }
         private bool IsAddEnabled()
         {
-            if (Brushes.FirstOrDefault(b=>b.Color == brush.Color) != null)
+            if (Brushes.Contains(brush))
                 return false;
             return true;
         }
