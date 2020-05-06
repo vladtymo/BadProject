@@ -51,7 +51,7 @@ namespace WPF_MVVM
         }
         private bool IsAddEnabled()
         {
-            if (Brushes.Contains(brush))
+            if (Brushes.FirstOrDefault(b=>b.Color == brush.Color) != null)
                 return false;
             return true;
         }
