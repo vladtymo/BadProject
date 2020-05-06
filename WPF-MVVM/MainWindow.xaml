@@ -43,17 +43,21 @@
             </Grid>
             <Label Background="{Binding Color}"/>
         </DockPanel>
+		
         <Button Content="Add" Height="22" Command="{Binding Path=AddCommand}"></Button>
-        <ListBox ItemsSource="{Binding Brushes}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Margin="5" Content="{Binding}" />
-                        <Label Margin="5" Width="255" Background="{Binding}" />
-                        <Button Margin="5" Content="Remove" Height="22" Command="{Binding Path=RemoveCommand}"></Button>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+		<ScrollViewer Height="276" CanContentScroll="True">
+			<ListBox ItemsSource="{Binding Brushes}">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<StackPanel Orientation="Horizontal">
+							<Label Margin="5" Content="{Binding}" />
+							<Label Margin="5" Width="255" Background="{Binding}" />
+							<Button Margin="5" Content="Remove" Height="22" Command="{Binding Path=RemoveCommand}"></Button>
+						</StackPanel>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+		</ScrollViewer>
+		
     </StackPanel>
 </Window>
