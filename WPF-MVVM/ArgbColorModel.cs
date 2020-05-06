@@ -22,8 +22,8 @@ namespace WPF_MVVM
         private ICommand addCommand;
         private ICommand removeCommand;
         private SolidColorBrush selectedBrush;
-
         public SolidColorBrush SelectedBrush { get { return selectedBrush; } set { selectedBrush = value; NotifyChanged(); } }
+
 
         public ObservableCollection<SolidColorBrush> Brushes { get; } = new ObservableCollection<SolidColorBrush>();
         public byte Alpha { get { return alpha; } set { alpha = value; Color = new SolidColorBrush(System.Windows.Media.Color.FromArgb(alpha, red, green, blue)); NotifyChanged(); } }
