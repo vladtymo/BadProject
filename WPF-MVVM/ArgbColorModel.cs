@@ -31,7 +31,7 @@ namespace WPF_MVVM
         public byte Green { get { return green; } set { green = value; Color = new SolidColorBrush(System.Windows.Media.Color.FromArgb(alpha, red, green, blue)); NotifyChanged(); } }
         public byte Blue { get { return blue; } set { blue = value; Color = new SolidColorBrush(System.Windows.Media.Color.FromArgb(alpha, red, green, blue)); NotifyChanged(); } }
 
-        SolidColorBrush brush;
+        SolidColorBrush brush = new SolidColorBrush(System.Windows.Media.Color.FromArgb(0,0,0,0));
         public SolidColorBrush Color { get { return brush; } set { brush = value; NotifyChanged(); } }
 
         public ICommand AddCommand
