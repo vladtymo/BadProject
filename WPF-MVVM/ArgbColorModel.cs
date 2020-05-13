@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -63,7 +64,7 @@ namespace WPF_MVVM
         }
         private bool IsAddEnabled()
         {
-            if (Brushes.Contains(brush))
+            if (Brushes.Contains(brush)||brush==null)
                 return false;
             return true;
         }
